@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainFiberActivity">
+    
+    <item
+        android:id="@+id/gp_building_civil_survey"
+        android:orderInCategory="101"
+        android:title="@string/gp_item1"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/gp_power_survey"
+        android:orderInCategory="102"
+        android:title="@string/gp_item2"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/taluka_building_civil_survey"
+        android:orderInCategory="103"
+        android:title="@string/tk_item1"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/taluka_power_survey"
+        android:orderInCategory="104"
+        android:title="@string/tk_item2"
+        app:showAsAction="never" />
+</menu>

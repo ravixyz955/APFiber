@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/tools">
+    <string-array name="flight_plan_duration">
+        <item>30 mins</item>
+        <item>60 mins</item>
+        <item>90 mins</item>
+        <item>120 mins</item>
+        <item>150 mins</item>
+        <item>180 mins</item>
+        <item>210 mins</item>
+        <item>240 mins</item>
+    </string-array>
+
+    <string-array name="taluka_names">
+        <item>--Select--</item>
+        <item>Charminar</item>
+        <item>Golkonda</item>
+        <item>Mushirabad </item>
+        <item>Secunderabad </item>
+    </string-array>
+
+    <string-array name="floorcelingtype">
+        <item>--Select--</item>
+        <item>Cemented</item>
+        <item>Mud</item>
+    </string-array>
+
+    <string-array name="airconditioning_availability">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="airconditioning_tons">
+        <item>--Select--</item>
+        <item>Tons</item>
+        <item>NA</item>
+    </string-array>
+
+    <string-array name="store_room_space_availability">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="secutity_of_store_room">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="uncluttered_space_for_solar_panel">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="assessment_of_site_earthing">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="site_accessibility">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="is_space_available_for_tower_outside">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="identification_of_ofc_cable_entry_exit_point">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="proposed_chamber_location_out_side_taluks_building_with_landmark">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="electricity_eb_availability">
+        <item>--Select--</item>
+        <item>Single</item>
+        <item>Three</item>
+    </string-array>
+
+    <string-array name="availability_of_earthing_point">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="earthing_accessories">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="space_available_for_cable_tray">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="earthpit_sp">
+        <item>--Select--</item>
+        <item>Normal</item>
+        <item>Chemical</item>
+    </string-array>
+
+    <string-array name="ups_sp">
+        <item>--Select--</item>
+        <item>15 KVA</item>
+        <item>6 KVA</item>
+        <item>3 KVA</item>
+        <item>1 T.B KVA</item>
+    </string-array>
+
+    <string-array name="splitter_box">
+        <item>--Select--</item>
+        <item>1:4</item>
+        <item>1:8</item>
+        <item>1:16</item>
+        <item>95:05</item>
+        <item>90:10</item>
+        <item>85:15</item>
+        <item>80:20</item>
+        <item>75:25</item>
+        <item>70:30</item>
+        <item>65:35</item>
+        <item>60:40</item>
+        <item>55:45</item>
+        <item>50:50</item>
+    </string-array>
+
+    <string-array name="cl_pipe_installation">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="voltage_check">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="electrical_meter">
+        <item>--Select--</item>
+        <item>3 phase</item>
+        <item>2 phase</item>
+    </string-array>
+
+    <string-array name="cement_ring">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="rack_array">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="optional_box_spinner">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="internal_wiring_completion">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="dwelling_type">
+        <item>--Select--</item>
+        <item>Adilabad</item>
+        <item>Nirmal</item>
+        <item>Karimnager</item>
+        <item>Vacant</item>
+        <item>Nizamabad</item>
+        <item>Kamareddy</item>
+        <item>Warangal</item>
+        <item>Khammam</item>
+        <item>Jagityal</item>
+        <item>Suryapeta</item>
+        <item>Vikarabad</item>
+        <item>Medchal</item>
+        <item>Medak</item>
+        <item>siddipet</item>
+        <item>Sangareddy</item>
+        <item>Peddapalli</item>
+        <item>Other</item>
+    </string-array>
+
+
+    <string-array name="line_type">
+        <item>--Select--</item>
+        <item>15 KVA</item>
+        <item>5 KVA</item>
+        <item>3 KVA</item>
+        <item>1 KVA</item>
+    </string-array>
+
+    <string-array name="pole_type">
+        <item>--Select--</item>
+        <item>Rectangular Cement</item>
+        <item>Rectangular Iron</item>
+        <item>Round Cement</item>
+    </string-array>
+
+    <string-array name="clamp_type_user">
+        <item>--Select--</item>
+        <item>Tension</item>
+        <item>Suspension</item>
+    </string-array>
+
+    <string-array name="clamp_installation_errors">
+        <item>--Select--</item>
+        <item>Clamp Bent</item>
+        <item>Broken Clamp</item>
+    </string-array>
+
+    <string-array name="cable_error_details">
+        <item>--Select--</item>
+        <item>Hanging too low</item>
+        <item>Cable damaged</item>
+    </string-array>
+
+    <string-array name="clamp_error_details">
+        <item>--Select--</item>
+        <item>Bush Not present</item>
+        <item>Clamp is Bent</item>
+    </string-array>
+
+    <string-array name="splicing_type">
+        <item>--Select--</item>
+        <item>2 Way</item>
+        <item>3 Way</item>
+        <item>4 Way</item>
+    </string-array>
+
+    <string-array name="location_type">
+        <item>--Select--</item>
+        <item>Mandal</item>
+        <item>Substation</item>
+    </string-array>
+
+    <string-array name="status">
+        <item>--Select--</item>
+        <item>In Progress</item>
+        <item>Completed</item>
+        <item>Pending</item>
+    </string-array>
+
+    <string-array name="rack_type">
+        <item>--Select--</item>
+        <item>42U</item>
+        <item>42U</item>
+        <item>24U</item>
+        <item>17U</item>
+    </string-array>
+
+    <string-array name="ups_capacity">
+        <item>--Select--</item>
+        <item>5</item>
+        <item>3</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="type_of_pop">
+        <item>--Select--</item>
+        <item>District Node</item>
+        <item>Zonal Node</item>
+        <item>Mandal Node</item>
+        <item>Substation Node</item>
+    </string-array>
+
+    <string-array name="router_sp">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+    <string-array name="olt_sp">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="type_of_pole">
+        <item>--Select--</item>
+    </string-array>
+
+    <string-array name="ups_bakcup_hours">
+        <item>--Select--</item>
+        <item>4</item>
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="ac_capacity">
+        <item>--Select--</item>
+        <item>1 Ton</item>
+        <item>1.5 Ton</item>
+        <item>2 Ton</item>
+    </string-array>
+</resources>

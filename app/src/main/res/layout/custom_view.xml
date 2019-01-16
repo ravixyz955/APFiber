@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="@string/ask_text" />
+
+    <EditText
+        android:id="@+id/reason_edt_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:background="@drawable/bg_form_field"
+        android:gravity="top|start"
+        android:hint="@string/hint_text"
+        android:lines="3"
+        android:maxLines="6"
+        android:padding="16dp" />
+</LinearLayout>

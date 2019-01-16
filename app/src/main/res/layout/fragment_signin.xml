@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2F3F5"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <EditText
+            android:id="@+id/signin_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@color/white"
+            android:drawableLeft="@drawable/ic_phone_black_24dp"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:hint="@string/hint_contact_number"
+            android:inputType="number"
+            android:maxLength="10"
+            android:padding="12dp"
+            android:textColorHint="#CCCCCC"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/signin_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@color/white"
+            android:drawableLeft="@drawable/ic_lock_black_24dp"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:textColorHint="#CCCCCC"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/signin_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="48dp"
+            android:background="@color/colorPrimary"
+            android:paddingLeft="48dp"
+            android:paddingRight="48dp"
+            android:text="@string/signin"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</RelativeLayout>

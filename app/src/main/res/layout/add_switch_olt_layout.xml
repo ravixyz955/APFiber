@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/switch_add_edt_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/switch_serial_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/bg_form_field"
+        android:ems="10"
+        android:hint="@string/hint_switch"
+        android:padding="16dp"
+        android:textColorHint="#CCCCCC"
+        android:textSize="14sp" />
+
+</LinearLayout>
