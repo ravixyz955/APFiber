@@ -151,14 +151,14 @@ public class ImagePickerView extends LinearLayout {
                     for (Uri uri : images) {
                         if (uri != null)
                             Log.d("DONE", "uploadImages: " + "Test Success!");
-//                        beginUpload(commentfolderName, getFilePath(uri));
+                        beginUpload(commentfolderName, getFilePath(uri));
                     }
                 }
             } else {
                 String path = getFilePath(fileUri);
                 if (path != null)
                     Log.d("DONE", "uploadImages: " + "Test Success!");
-//                beginUpload(commentfolderName, path);
+                beginUpload(commentfolderName, path);
             }
         } catch (URISyntaxException e) {
             Toast.makeText(mContext,

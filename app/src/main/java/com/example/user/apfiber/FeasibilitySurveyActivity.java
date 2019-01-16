@@ -222,7 +222,7 @@ public class FeasibilitySurveyActivity extends AppCompatActivity {
                                                 final View row = add_ins_commi_layout.getChildAt(i1);
                                                 TextView title = row.findViewById(R.id.card_view_image_title);
                                                 pop_pole.put("type", title.getText().toString());
-//                                                pop_pole.put("uri", imageUri.get(i1));
+                                                pop_pole.put("uri", imageUri.get(i1));
                                                 pop_pole.put("timeStamp", timeStamp.get(i1));
                                                 coordinates.put(latitude.get(i1));
                                                 coordinates.put(longitude.get(i1));
