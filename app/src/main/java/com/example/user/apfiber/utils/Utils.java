@@ -1,11 +1,17 @@
 package com.example.user.apfiber.utils;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.telephony.TelephonyManager;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
@@ -32,6 +38,7 @@ import java.util.Date;
  */
 
 public class Utils {
+    private static final int REQUEST_READ_PHONE_STATE = 1234;
 
     public static String formatDate(Date date, String format) {
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat(format);
@@ -73,5 +80,19 @@ public class Utils {
 
     public static boolean isMediaDocument(Uri uri) {
         return "com.android.providers.media.documents".equals(uri.getAuthority());
+    }
+
+    @SuppressLint("MissingPermission")
+    public static String getIMEI(Context mContext) {
+        TelephonyManager telephonyManager = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
+        String imei = null;
+
+        int permissionCheck = ContextCompat.checkSelfPermission(mContext, Manifest.permission.READ_PHONE_STATE);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions((Activity) mContext, new String[]{Manifest.permission.READ_PHONE_STATE}, REQUEST_READ_PHONE_STATE);
+        } else {
+            imei = telephonyManager.getDeviceId();
+        }
+        return imei;
     }
 }

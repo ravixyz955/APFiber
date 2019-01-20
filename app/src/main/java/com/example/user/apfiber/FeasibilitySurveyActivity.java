@@ -1,8 +1,10 @@
 package com.example.user.apfiber;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.location.Location;
 import android.net.Uri;
@@ -10,8 +12,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Parcelable;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -67,6 +71,7 @@ public class FeasibilitySurveyActivity extends AppCompatActivity {
     private ImageView card_view_image;
     private ImagePickerView imagePickerView;
     private Button feasibile_ok, feasible_not_ok;
+    private String imei;
     private Animation animation;
     private ArrayList<Uri> imageUri;
     private ArrayList<Long> timeStamp;
@@ -127,6 +132,7 @@ public class FeasibilitySurveyActivity extends AppCompatActivity {
             feasible_not_ok.setVisibility(View.GONE);
         }
 
+        imei = Utils.getIMEI(this);
         getSavedFormData();
         add_pop_pole_img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -210,6 +216,7 @@ public class FeasibilitySurveyActivity extends AppCompatActivity {
                                         formJson.put("type", "Feature");
                                         formJson.put("ID", id_edt.getText().toString());
                                         formJson.put("geometry", geometry);
+                                        formJson.put("imei", imei);
                                         formJson.put("mobile", DataUtils.getMobileNumber(FeasibilitySurveyActivity.this));
                                         formJson.put("password", DataUtils.getPassword(FeasibilitySurveyActivity.this));
                                         properties.put("ts", System.currentTimeMillis());
@@ -291,6 +298,7 @@ public class FeasibilitySurveyActivity extends AppCompatActivity {
                                         formJson.put("type", "Feature");
                                         formJson.put("ID", id_edt.getText().toString());
                                         formJson.put("geometry", geometry);
+                                        formJson.put("imei", imei);
                                         if (!TextUtils.isEmpty(reason_edt_txt.getText()))
                                             formJson.put("not_feasible_reason", reason_edt_txt.getText().toString());
                                         formJson.put("mobile", DataUtils.getMobileNumber(FeasibilitySurveyActivity.this));
@@ -346,7 +354,6 @@ public class FeasibilitySurveyActivity extends AppCompatActivity {
         imagePickerView.setImagePickerListener(new ImagePickerView.ImagePickerListener() {
             @Override
             public void onClick() {
-//                pickImages();
             }
         });
 
@@ -592,6 +599,17 @@ public class FeasibilitySurveyActivity extends AppCompatActivity {
         else {
             super.onBackPressed();
             saveFormData();
+        }
+    }
+
+    @SuppressLint("MissingPermission")
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if ((grantResults.length > 0) && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+            TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+            imei = telephonyManager.getDeviceId();
+            Log.d("IMEI", "onRequestPermissionsResult: " + telephonyManager.getDeviceId());
         }
     }
 }

@@ -20,6 +20,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -86,7 +87,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public static final String POLE_GEOJSON_SOURCE = "pole_geojson-source";
     public static final String POP_GEOJSON_SOURCE = "pop_geojson-source";
     public static final String LINE_SOURCE = "line-source";
-    private static final String imei = "352313077197359/01";
     private int mDpi = 0;
     private Feature selectedFeature;
     private List<Point> routeCoordinates;
@@ -136,7 +136,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     case R.id.pole_id:
                         Intent pole_intent = new Intent(MainActivity.this, PoleActivity.class);
                         pole_intent.putExtra(Location.class.getName(), location);
-                        pole_intent.putExtra("imei", imei);
                         startActivity(pole_intent);
                         break;
                     case R.id.pop_id:
@@ -146,7 +145,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         if (districtsList != null && districtsList.size() > 0)
                             pop_intent.putParcelableArrayListExtra("districts", districtsList);
                         pop_intent.putExtra(Location.class.getName(), location);
-                        pop_intent.putExtra("imei", imei);
                         startActivity(pop_intent);
                         break;
                 }

@@ -1,8 +1,10 @@
 package com.example.user.apfiber;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.location.Location;
 import android.net.Uri;
@@ -10,8 +12,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Parcelable;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -62,6 +66,7 @@ public class InstallationSurveyActivity extends AppCompatActivity {
     private ArrayList<Uri> imageUri;
     private ArrayList<ImageView> viewsList;
     private Uri imgUri;
+    private String imei;
     private boolean optional_box_no;
     private FrameLayout progress_bar;
     private ImagePickerView imagePickerView;
@@ -129,6 +134,8 @@ public class InstallationSurveyActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             setTitle("Installation Survey");
         }
+        imei = Utils.getIMEI(this);
+
         labels.add("Customer premises");
         labels.add("Gpon box");
         labels.add("Optional box");
@@ -237,9 +244,7 @@ public class InstallationSurveyActivity extends AppCompatActivity {
             }
         });
 
-        submit.setOnClickListener(new View.OnClickListener()
-
-        {
+        submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (TextUtils.isEmpty(uid_edt.getText()))
                     Utils.showToast(InstallationSurveyActivity.this, "uid cannot be empty");
@@ -277,6 +282,7 @@ public class InstallationSurveyActivity extends AppCompatActivity {
                         geometry.put("type", "Point");
                         formJson.put("type", "Feature");
                         formJson.put("geometry", geometry);
+                        formJson.put("imei", imei);
                         formJson.put("mobile", DataUtils.getMobileNumber(InstallationSurveyActivity.this));
                         formJson.put("password", DataUtils.getPassword(InstallationSurveyActivity.this));
 
@@ -368,12 +374,9 @@ public class InstallationSurveyActivity extends AppCompatActivity {
             }
         });
 
-        imagePickerView.setImagePickerListener(new ImagePickerView.ImagePickerListener()
-
-        {
+        imagePickerView.setImagePickerListener(new ImagePickerView.ImagePickerListener() {
             @Override
             public void onClick() {
-//                pickImages(0);
             }
         });
 
@@ -652,5 +655,16 @@ public class InstallationSurveyActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         saveFormData();
+    }
+
+    @SuppressLint("MissingPermission")
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if ((grantResults.length > 0) && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+            TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+            imei = telephonyManager.getDeviceId();
+            Log.d("IMEI", "onRequestPermissionsResult: " + telephonyManager.getDeviceId());
+        }
     }
 }

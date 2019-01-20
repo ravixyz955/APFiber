@@ -1,7 +1,9 @@
 package com.example.user.apfiber;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.location.Location;
@@ -10,8 +12,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Parcelable;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -156,9 +160,7 @@ public class PopActivity extends AppCompatActivity {
             location = getIntent().getParcelableExtra(Location.class.getName());
         }
 
-        if (getIntent().hasExtra("imei")) {
-            imei = getIntent().getStringExtra("imei");
-        }
+        imei = Utils.getIMEI(this);
 
         if (getIntent().hasExtra(Feature.class.getName())) {
             selectedFeature = Feature.fromJson(getIntent().getStringExtra(Feature.class.getName()));
@@ -180,7 +182,6 @@ public class PopActivity extends AppCompatActivity {
                     getDistrictsList();
             }
         }
-
 
         tk_photo_rack_id.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -846,6 +847,7 @@ public class PopActivity extends AppCompatActivity {
                 imageUri.add(data.getClipData().getItemAt(i).getUri());
             }
             imagePickerView.addImages(imageUri);
+            imagePickerView.addImages(imageUri);
         }
     }
 
@@ -858,5 +860,16 @@ public class PopActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @SuppressLint("MissingPermission")
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if ((grantResults.length > 0) && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+            TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+            imei = telephonyManager.getDeviceId();
+            Log.d("IMEI", "onRequestPermissionsResult: " + telephonyManager.getDeviceId());
+        }
     }
 }
